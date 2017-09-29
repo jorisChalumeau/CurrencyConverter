@@ -5,15 +5,15 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class Window extends JFrame {
-    private ArrayList<Button> butList =new ArrayList<>();
-    private Button lab=new Button("dff");
-    private JPanel valeurs=new JPanel();
-    private JPanel result= new JPanel();
-    private  JPanel tabl=new JPanel();
-    private  Button val1 = new Button("kjutkyjuyej");
-    private  Button val2 = new Button("1");
-    private  Button val3 = new Button("zrzerf");
-    private  Button val4 = new Button("4");
+    protected ArrayList<Button> butList =new ArrayList<>();
+    protected Button lab=new Button("dff");
+    protected JPanel valeurs=new JPanel();
+    protected JPanel result= new JPanel();
+    protected JPanel tabl=new JPanel();
+    protected Button val1 = new Button("kjutkyjuyej");
+    protected Button val2 = new Button("1");
+    protected Button val3 = new Button("zrzerf");
+    protected Button val4 = new Button("4");
 
     public Window(String title, int height, int width) throws HeadlessException {
         super(title);
@@ -47,7 +47,6 @@ public class Window extends JFrame {
         bres.gridy = 0;
         bres.insets = new Insets(3, 3, 3, 3);
         bres.fill = GridBagConstraints.HORIZONTAL;
-        bres.gridwidth = 3;
         lab.setEnabled(false);
         lab.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 24));
         Dimension dim = new Dimension(328, 70);
@@ -58,7 +57,6 @@ public class Window extends JFrame {
         bres.gridy = 0;
         bres.insets = new Insets(3, 3, 3, 3);
         bres.fill = GridBagConstraints.HORIZONTAL;
-        bres.gridwidth = 1;
         Button supp = new Button("supp");
         Dimension dimLab = new Dimension(105, 70);
         supp.setPreferredSize(dimLab);
@@ -72,8 +70,8 @@ public class Window extends JFrame {
         butList.add(b2);
         Button b3 = new Button("3");
         butList.add(b3);
-        Button bPlus = new Button("+");
-        butList.add(bPlus);
+     //   Button bPlus = new Button("+");
+     //   butList.add(bPlus);
 
 // -------------------Ligne--------------
         Button b4 = new Button("4");
@@ -82,8 +80,8 @@ public class Window extends JFrame {
         butList.add(b5);
         Button b6 = new Button("6");
         butList.add(b6);
-        Button bMoins = new Button("-");
-        butList.add(bMoins);
+     //   Button bMoins = new Button("-");
+     //   butList.add(bMoins);
 
 // -------------------Ligne--------------
         Button b7 = new Button("7");
@@ -92,8 +90,8 @@ public class Window extends JFrame {
         butList.add(b8);
         Button b9 = new Button("9");
         butList.add(b9);
-        Button bMult = new Button("*");
-        butList.add(bMult);
+     //   Button bMult = new Button("*");
+     //   butList.add(bMult);
 
 // -------------------Ligne--------------
         Button bEgal = new Button("=");
@@ -102,8 +100,8 @@ public class Window extends JFrame {
         butList.add(b0);
         Button bVirg = new Button(".");
         butList.add(bVirg);
-        Button bDiv = new Button("/");
-        butList.add(bDiv);
+     //   Button bDiv = new Button("/");
+     //   butList.add(bDiv);
 
         int i =0;
         int j =1;
@@ -111,13 +109,13 @@ public class Window extends JFrame {
         for (Button nb:butList) {
             bc.gridx = i;
             bc.gridy = j;
-            bc.insets = new Insets(3, 3, 3, 3);
-            Dimension dimBut = new Dimension(105, 70);
+            bc.insets = new Insets(3, 5, 3, 5);
+            Dimension dimBut = new Dimension(120, 70);
             nb.setPreferredSize(dimBut);
             nb.setFont(new Font(tabl.getFont().getName(), Font.PLAIN, 22));
             tabl.add(nb, bc);
             i++;
-            if(i==4){
+            if(i==3){
                 i=0;
                 j++;
             }
@@ -130,10 +128,18 @@ public class Window extends JFrame {
         valeurs.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
 
-        JLabel flag1 = new JLabel("Fr");
-        JLabel flag2 = new JLabel("Do");
-        JLabel flag3 = new JLabel("Y");
-        JLabel flag4 = new JLabel("HE");
+        JLabel flag1 = new JLabel();
+        Icon im1 = new ImageIcon("../currency-converter_2017/src/eur.png") ;
+        flag1.setIcon(im1);
+        JLabel flag2 = new JLabel();
+        Icon im2 = new ImageIcon("../currency-converter_2017/src/eur.png") ;
+        flag1.setIcon(im1);
+        JLabel flag3 = new JLabel();
+        Icon im3 = new ImageIcon("../currency-converter_2017/src/eur.png") ;
+        flag1.setIcon(im1);
+        JLabel flag4 = new JLabel();
+        Icon im4 = new ImageIcon("../currency-converter_2017/src/eur.png") ;
+        flag1.setIcon(im1);
 
         String[] pays = {"EUR", "USD", "GBP", "CAD", "CHF", "AUD", "INR", "TND", "AED", "GPY"};
 
