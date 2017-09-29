@@ -1,57 +1,22 @@
 package modele;
 
 import com.google.gson.Gson;
-import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import java.awt.*;
 import java.io.*;
 
 public class FileManager {
 
-    /**
-     * select file to save currency exchange rates
-     * @param cCmp
-     * @param parent
-     */
-    public void save(CurrencyManager cCmp, Component parent){
-        JFileChooser choice = new JFileChooser();
-        choice.addChoosableFileFilter(new FileNameExtensionFilter("Currency Rate Files (.curr)", "curr"));
-        choice.setAcceptAllFileFilterUsed(false);
-
-        if(choice.showSaveDialog(parent) == JFileChooser.APPROVE_OPTION)
-            this.saveCurrency(choice.getSelectedFile(), cCmp);
-        else
-            System.out.println("aucun fichier sélectionné");
-    }
-
-    /**
-     * select file to load currency exchange rates
-     * @param parent
-     * @return
-     */
-    public CurrencyManager load(Component parent){
-        JFileChooser choice = new JFileChooser();
-        choice.addChoosableFileFilter(new FileNameExtensionFilter("Currency Rate Files (.curr)", "curr"));
-        choice.setAcceptAllFileFilterUsed(false);
-
-        if(choice.showOpenDialog(parent) == JFileChooser.APPROVE_OPTION) {
-            return this.loadCurrency(choice.getSelectedFile());
-        } else {
-            System.out.println("aucun fichier sélectionné");
-            return null;
-        }
-    }
-
+    public final static String FLAGS_DIR_PATH = "../currency-converter_2017/src/files";
+    private final static String FILE_CURLIST_PATH = "../currency-converter_2017/src/files/curList.txt";
 
     /**
      * save the currency list (with the exchange rates) in the file
      */
-    private void saveCurrency(File file, CurrencyManager curr){
+    public void saveCurrency(CurrencyManager curr){
         Gson gson = new Gson();
 
         // mettre json dans le fichier
         try{
-            FileWriter fw = new FileWriter(file);
+            FileWriter fw = new FileWriter(new File(FILE_CURLIST_PATH));
             fw.write(gson.toJson(curr));
             fw.close();
         } catch (IOException e) {
@@ -60,14 +25,14 @@ public class FileManager {
     }
 
     /**
-     * load the currency list (with the exchange rates) from the file
+     * loadImage the currency list (with the exchange rates) from the file
      */
-    private CurrencyManager loadCurrency(File file){
+    public CurrencyManager loadCurrency(){
         Gson gson = new Gson();
 
         // recuperer json dans le fichier
         try{
-            FileReader fr = new FileReader(file);
+            FileReader fr = new FileReader(new File(FILE_CURLIST_PATH));
             return gson.fromJson(fr, CurrencyManager.class);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
