@@ -15,10 +15,11 @@ public class Controler implements ActionListener {
     public Controler() {
         FileManager fm = new FileManager();
 
-        //currList = fm.loadCurrency();
+        currList = fm.loadCurrency();
+        currList.printCurrs();
 
         window = new Window("Currency converter");
-        //window.initVal();
+
         initWindow();
     }
 

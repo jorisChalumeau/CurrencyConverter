@@ -1,0 +1,1 @@
+{"currencies":[{"name":"USD","exchangeRate":1.0, "imagePath":"./src/flags/usd.png"},{"name":"EUR","exchangeRate":0.851, "imagePath":"./src/flags/eur.png"},{"name":"GBP","exchangeRate":0.74681, "imagePath":"./src/flags/gbp.png"},{"name":"INR","exchangeRate":65.6837, "imagePath":"./src/flags/inr.png"},{"name":"AUD","exchangeRate":1.27916, "imagePath":"./src/flags/aud.png"}]}

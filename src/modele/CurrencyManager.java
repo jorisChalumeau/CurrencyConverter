@@ -20,14 +20,15 @@ public class CurrencyManager {
             NumberFormat formatter = new DecimalFormat("#00.00000");
             String s = formatter.format(1);
 
-            System.out.println("------------------------");
-            System.out.println("| XXX | CUR | USDtoCUR |");
+            System.out.println("---------------------------------------------");
+            System.out.println("| id | CUR | USDtoCUR |      file path      |");
             for (Currency c : currencies) {
-                System.out.println("------------------------");
-                System.out.println("| "+String.format("%03d",cpt)+" | "+c.getName()+" | "+formatter.format(c.getExchangeRate())+" |");
+                System.out.println("---------------------------------------------");
+                System.out.println("| "+String.format("%02d",cpt)+" | "+c.getName()+" | "
+                        +formatter.format(c.getExchangeRate())+" | "+c.getImagePath()+" |");
                 cpt++;
             }
-            System.out.println("------------------------");
+            System.out.println("---------------------------------------------");
         }
     }
 
