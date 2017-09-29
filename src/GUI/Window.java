@@ -165,7 +165,7 @@ public class Window extends JFrame {
         GridBagConstraints c = new GridBagConstraints();
 
         JLabel flag1 = new JLabel();
-        Icon im1 = new ImageIcon("../currency-converter_2017/src/eur.png") ;
+        Icon im1 = new ImageIcon("./src/flags/eur.png") ;
         flag1.setIcon(im1);
         JLabel flag2 = new JLabel();
         flag2.setIcon(im1);
@@ -331,25 +331,25 @@ public class Window extends JFrame {
     public String changeFlag(String name) {
         switch (name) {
             case "EUR":
-                return new String("../currency-converter_2017/src/flags/eur.png");
+                return new String("./src/flags/eur.png");
             case "USD":
-                return new String("../currency-converter_2017/src/flags/usd.png");
+                return new String("./src/flags/usd.png");
             case "GBP":
-                return new String("../currency-converter_2017/src/flags/gbp.png");
+                return new String("./src/flags/gbp.png");
             case "CAD":
-                return new String("../currency-converter_2017/src/flags/cad.png");
+                return new String("./src/flags/cad.png");
             case "CHF":
-                return new String("../currency-converter_2017/src/flags/chf.png");
+                return new String("./src/flags/chf.png");
             case "AUD":
-                return new String("../currency-converter_2017/src/flags/aud.png");
+                return new String("./src/flags/aud.png");
             case "INR":
-                return new String("../currency-converter_2017/src/flags/inr.png");
+                return new String("./src/flags/inr.png");
             case "TND":
-                return new String("../currency-converter_2017/src/flags/tnd.png");
+                return new String("./src/flags/tnd.png");
             case "AED":
-                return new String("../currency-converter_2017/src/flags/aed.png");
+                return new String("./src/flags/aed.png");
             case "GPY":
-                return new String("../currency-converter_2017/src/flags/gpy.png");
+                return new String("./src/flags/jpy.png");
         }
         return "";
     }
