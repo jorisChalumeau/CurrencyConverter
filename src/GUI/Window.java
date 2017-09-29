@@ -142,7 +142,7 @@ public class Window extends JFrame {
         int i =0;
         int j =1;
 
-        for (Button nb : butList) {
+        for (Button nb:butList) {
             bc.gridx = i;
             bc.gridy = j;
             bc.insets = new Insets(3, 5, 3, 5);
