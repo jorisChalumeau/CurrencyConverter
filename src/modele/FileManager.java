@@ -5,8 +5,8 @@ import java.io.*;
 
 public class FileManager {
 
-    public final static String FLAGS_DIR_PATH = "../currency-converter_2017/src/files";
-    private final static String FILE_CURLIST_PATH = "../currency-converter_2017/src/files/curList.txt";
+    public final static String FLAGS_DIR_PATH = "src/files";
+    private final static String FILE_CURLIST_PATH = "src/files/curList.txt";
 
     /**
      * save the currency list (with the exchange rates) in the file
