@@ -7,17 +7,38 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Window extends JFrame {
+
+    /**
+     * ArrayList contenant les boutons
+     * butList : pavé numérique
+     * listVal : boutons des monnaies
+     * listTot : butList + bouton supp
+     */
     private ArrayList<Button> butList =new ArrayList<>();
     private ArrayList<Button> listTot =new ArrayList<>();
     private ArrayList<Button> listVal =new ArrayList<>();
-    private Button lab=new Button("0");
+    /**
+     * JPanels d'affichage
+     * valeurs : affiche les 4 listes déroulantes et boutons des monnaies
+     * result : affiche le bouton supp et l'affichage de la valeur modifiée
+     * tabl : affiche le pavé numérique
+     */
     private JPanel valeurs=new JPanel();
     private JPanel result= new JPanel();
     private JPanel tabl=new JPanel();
+
+    /**
+     * lab : affiche la valeur modifiable actuelle
+     */
+    private Button lab=new Button("0");
+    /**
+     * 4 boutons affichant les sommes des monnaies et permettant de les modifier
+     */
     private Button val1 = new Button("1");
     private Button val2 = new Button("2");
     private Button val3 = new Button("3");
     private Button val4 = new Button("4");
+
     private int stockNumVal;
     private Button supp = new Button("supp");
 
@@ -96,6 +117,9 @@ public class Window extends JFrame {
         return stockNumVal;
     }
 
+    /**
+     * crée le pavé d'aquisition des valeures
+     */
     public void initButton(){
 
         result.setLayout(new GridBagLayout());
@@ -184,8 +208,10 @@ public class Window extends JFrame {
         }
     }
 
+    /**
+     * initie l'affichage des monnaies
+     */
     public void initVal() {
-
 
         valeurs.setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
@@ -203,6 +229,43 @@ public class Window extends JFrame {
         String[] pays = {"EUR", "USD", "GBP", "CAD", "CHF", "AUD", "INR", "TND", "AED", "GPY"};
 
 
+
+        val1.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        lab.setText(val1.getText());
+                        stockNumVal=1;
+                    }
+                }
+        );
+        val2.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        lab.setText(val2.getText());
+                        stockNumVal=2;
+                    }
+                }
+        );
+        val3.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        lab.setText(val3.getText());
+                        stockNumVal=3;
+                    }
+                }
+        );
+        val4.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        lab.setText(val4.getText());
+                        stockNumVal=4;
+                    }
+                }
+        );
+
+        /**
+         * Mise en place des listes déroulantes
+         */
         list = new JComboBox(pays);
         list2 = new JComboBox(pays);
         list3 = new JComboBox(pays);
@@ -249,40 +312,6 @@ public class Window extends JFrame {
                 }
         );
 
-        val1.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        lab.setText(val1.getText());
-                        stockNumVal=1;
-                    }
-                }
-        );
-        val2.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        lab.setText(val2.getText());
-                        stockNumVal=2;
-                    }
-                }
-        );
-        val3.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        lab.setText(val3.getText());
-                        stockNumVal=3;
-                    }
-                }
-        );
-        val4.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        lab.setText(val4.getText());
-                        stockNumVal=4;
-                    }
-                }
-        );
-
-
         list.setBackground(Color.CYAN);
         list2.setBackground(Color.CYAN);
         list3.setBackground(Color.CYAN);
@@ -297,11 +326,13 @@ public class Window extends JFrame {
         JScrollPane listCur3 = new JScrollPane(list3);
         JScrollPane listCur4 = new JScrollPane(list4);
 
-
+/**
+ * affichage
+ */
         Color newC = new Color(30,144,255);
         valeurs.setBackground(newC);
 
-
+// -------------------Ligne--------------
         c.gridx = 0;
         c.gridy = 0;
         c.insets = new Insets(6, 0, 3, 0);
@@ -323,6 +354,7 @@ public class Window extends JFrame {
         val1.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 24));
         valeurs.add(val1, c);
 
+        // -------------------Ligne--------------
         c.gridx = 0;
         c.gridy = 1;
         c.insets = new Insets(3, 0, 3, 0);
@@ -344,6 +376,7 @@ public class Window extends JFrame {
         val2.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 24));
         valeurs.add(val2, c);
 
+        // -------------------Ligne--------------
         c.gridx = 0;
         c.gridy = 2;
         c.insets = new Insets(3, 0, 3, 0);
@@ -365,6 +398,7 @@ public class Window extends JFrame {
         val3.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 24));
         valeurs.add(val3, c);
 
+        // -------------------Ligne--------------
         c.gridx = 0;
         c.gridy = 3;
         c.insets = new Insets(3, 0, 13, 0);
@@ -388,6 +422,10 @@ public class Window extends JFrame {
 
     }
 
+    /**
+     * @param name nom de la monaie choisie
+     * @return chemin pour fécupérer l'image correspondante
+     */
     public String changeFlag(String name) {
         switch (name) {
             case "EUR":
