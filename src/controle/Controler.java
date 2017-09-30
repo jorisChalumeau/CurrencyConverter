@@ -145,15 +145,31 @@ public class Controler implements ActionListener {
     public void renvoiResult(){
         if(window.getStockNumVal()==1){
             window.getVal1().setText(window.getLab().getText());
+            double value = Double.parseDouble(window.getLab().getText());
+            window.getVal2().setText(String.valueOf(value*2/3));
+            window.getVal3().setText(String.valueOf(value*2/3));
+            window.getVal4().setText(String.valueOf(value*2/3));
         }
         if(window.getStockNumVal()==2){
             window.getVal2().setText(window.getLab().getText());
+            double value = Double.parseDouble(window.getLab().getText());
+            window.getVal1().setText(String.valueOf(value*2/3));
+            window.getVal3().setText(String.valueOf(value*2/3));
+            window.getVal4().setText(String.valueOf(value*2/3));
         }
         if(window.getStockNumVal()==3){
             window.getVal3().setText(window.getLab().getText());
+            double value = Double.parseDouble(window.getLab().getText());
+            window.getVal1().setText(String.valueOf(value*2/3));
+            window.getVal2().setText(String.valueOf(value*2/3));
+            window.getVal4().setText(String.valueOf(value*2/3));
         }
         if(window.getStockNumVal()==4){
             window.getVal4().setText(window.getLab().getText());
+            double value = Double.parseDouble(window.getLab().getText());
+            window.getVal1().setText(String.valueOf(value*2/3));
+            window.getVal2().setText(String.valueOf(value*2/3));
+            window.getVal3().setText(String.valueOf(value*2/3));
         }
     }
 }
