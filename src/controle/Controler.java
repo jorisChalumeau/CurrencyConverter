@@ -15,8 +15,8 @@ public class Controler implements ActionListener {
     public Controler() {
         FileManager fm = new FileManager();
 
-        currList = fm.loadCurrency();
-        currList.printCurrs();
+//        currList = fm.loadCurrency();
+//        currList.printCurrs();
 
         window = new Window("Currency converter");
 
@@ -122,7 +122,7 @@ public class Controler implements ActionListener {
                 }
                 break;
             case "=":
-
+                renvoiResult();
                 break;
             case "supp":
                 suppCase();
@@ -140,6 +140,20 @@ public class Controler implements ActionListener {
         else{
             window.getLab().setText(window.getLab().getText().substring(0, window.getLab().getText().length() - 1));
 
+        }
+    }
+    public void renvoiResult(){
+        if(window.getStockNumVal()==1){
+            window.getVal1().setText(window.getLab().getText());
+        }
+        if(window.getStockNumVal()==2){
+            window.getVal2().setText(window.getLab().getText());
+        }
+        if(window.getStockNumVal()==3){
+            window.getVal3().setText(window.getLab().getText());
+        }
+        if(window.getStockNumVal()==4){
+            window.getVal4().setText(window.getLab().getText());
         }
     }
 }

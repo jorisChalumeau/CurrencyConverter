@@ -14,10 +14,11 @@ public class Window extends JFrame {
     private JPanel valeurs=new JPanel();
     private JPanel result= new JPanel();
     private JPanel tabl=new JPanel();
-    private Button val1 = new Button("kjutkyjuyej");
-    private Button val2 = new Button("1");
-    private Button val3 = new Button("zrzerf");
+    private Button val1 = new Button("1");
+    private Button val2 = new Button("2");
+    private Button val3 = new Button("3");
     private Button val4 = new Button("4");
+    private int stockNumVal;
     private Button supp = new Button("supp");
 
 
@@ -56,21 +57,46 @@ public class Window extends JFrame {
     public ArrayList<Button> getListTot() {
         return listTot;
     }
-
     public ArrayList<Button> getListVal() {
         return listVal;
     }
-
     public Button getLab() {
         return lab;
     }
-
     public void setLab(Button lab) {
         this.lab = lab;
     }
 
-    public void initButton(){
+    public Button getVal1() {
+        return val1;
+    }
+    public void setVal1(Button val1) {
+        this.val1 = val1;
+    }
+    public Button getVal2() {
+        return val2;
+    }
+    public void setVal2(Button val2) {
+        this.val2 = val2;
+    }
+    public Button getVal3() {
+        return val3;
+    }
+    public void setVal3(Button val3) {
+        this.val3 = val3;
+    }
+    public Button getVal4() {
+        return val4;
+    }
+    public void setVal4(Button val4) {
+        this.val4 = val4;
+    }
 
+    public int getStockNumVal() {
+        return stockNumVal;
+    }
+
+    public void initButton(){
 
         result.setLayout(new GridBagLayout());
         GridBagConstraints bres = new GridBagConstraints();
@@ -222,6 +248,40 @@ public class Window extends JFrame {
                     }
                 }
         );
+
+        val1.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        lab.setText(val1.getText());
+                        stockNumVal=1;
+                    }
+                }
+        );
+        val2.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        lab.setText(val2.getText());
+                        stockNumVal=2;
+                    }
+                }
+        );
+        val3.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        lab.setText(val3.getText());
+                        stockNumVal=3;
+                    }
+                }
+        );
+        val4.addActionListener(
+                new ActionListener(){
+                    public void actionPerformed(ActionEvent e){
+                        lab.setText(val4.getText());
+                        stockNumVal=4;
+                    }
+                }
+        );
+
 
         list.setBackground(Color.CYAN);
         list2.setBackground(Color.CYAN);
