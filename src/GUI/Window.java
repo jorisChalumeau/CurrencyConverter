@@ -134,6 +134,7 @@ public class Window extends JFrame {
         tabl.setLayout(new GridBagLayout());
         GridBagConstraints bc = new GridBagConstraints();
         tabl.setBackground(Color.GRAY);
+        Color newC = new Color(127,221,76);
 
         bres.gridx = 0;
         bres.gridy = 0;
@@ -152,6 +153,7 @@ public class Window extends JFrame {
         Dimension dimLab = new Dimension(105, 70);
         supp.setPreferredSize(dimLab);
         supp.setCursor( Cursor.getPredefinedCursor(12) );
+        supp.setBackground(newC);
         result.add(supp, bres);
 
 // -------------------Ligne--------------

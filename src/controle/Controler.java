@@ -6,6 +6,7 @@ import modele.CurrencyManager;
 import modele.*;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -171,6 +172,10 @@ public class Controler implements ActionListener {
                     public void actionPerformed(ActionEvent e){
                         window.getLab().setText(window.getVal1().getText());
                         stockNumVal=1;
+                        window.getVal1().setBackground(new Color(255,255,107));
+                        window.getVal2().setBackground(Color.WHITE);
+                        window.getVal3().setBackground(Color.WHITE);
+                        window.getVal4().setBackground(Color.WHITE);
                     }
                 }
         );
@@ -179,6 +184,10 @@ public class Controler implements ActionListener {
                     public void actionPerformed(ActionEvent e){
                         window.getLab().setText(window.getVal2().getText());
                         stockNumVal=2;
+                        window.getVal1().setBackground(Color.WHITE);
+                        window.getVal2().setBackground(new Color(255,255,107));
+                        window.getVal3().setBackground(Color.WHITE);
+                        window.getVal4().setBackground(Color.WHITE);
                     }
                 }
         );
@@ -187,6 +196,10 @@ public class Controler implements ActionListener {
                     public void actionPerformed(ActionEvent e){
                         window.getLab().setText(window.getVal3().getText());
                         stockNumVal=3;
+                        window.getVal1().setBackground(Color.WHITE);
+                        window.getVal2().setBackground(Color.WHITE);
+                        window.getVal3().setBackground(new Color(255,255,107));
+                        window.getVal4().setBackground(Color.WHITE);
                     }
                 }
         );
@@ -195,6 +208,10 @@ public class Controler implements ActionListener {
                     public void actionPerformed(ActionEvent e){
                         window.getLab().setText(window.getVal4().getText());
                         stockNumVal=4;
+                        window.getVal1().setBackground(Color.WHITE);
+                        window.getVal2().setBackground(Color.WHITE);
+                        window.getVal3().setBackground(Color.WHITE);
+                        window.getVal4().setBackground(new Color(255,255,107));
                     }
                 }
         );
