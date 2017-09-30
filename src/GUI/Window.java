@@ -2,8 +2,6 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class Window extends JFrame {
@@ -17,6 +15,7 @@ public class Window extends JFrame {
     private ArrayList<Button> butList =new ArrayList<>();
     private ArrayList<Button> listTot =new ArrayList<>();
     private ArrayList<Button> listVal =new ArrayList<>();
+
     /**
      * JPanels d'affichage
      * valeurs : affiche les 4 listes déroulantes et boutons des monnaies
@@ -31,6 +30,7 @@ public class Window extends JFrame {
      * lab : affiche la valeur modifiable actuelle
      */
     private Button lab=new Button("0");
+
     /**
      * 4 boutons affichant les sommes des monnaies et permettant de les modifier
      */
@@ -39,40 +39,22 @@ public class Window extends JFrame {
     private Button val3 = new Button("3");
     private Button val4 = new Button("4");
 
-    private int stockNumVal;
     private Button supp = new Button("supp");
 
 
-    private JComboBox list = new JComboBox();
+    private JComboBox list1 = new JComboBox();
     private JComboBox list2 = new JComboBox();
     private JComboBox list3 = new JComboBox();
     private JComboBox list4 = new JComboBox();
+    private JLabel flag1;
+    private JLabel flag2;
+    private JLabel flag3;
+    private JLabel flag4;
 
     public Window(String title) throws HeadlessException {
         super(title);
         this.setSize(450, 650);
         initButton();
-        initVal();
-        for (Button b: butList) {
-            listTot.add(b);
-        }
-        listTot.add(supp);
-        listVal.add(val1);
-        listVal.add(val2);
-        listVal.add(val3);
-        listVal.add(val4);
-
-        Dimension dim = new Dimension(120, 45);
-        val1.setPreferredSize(dim);
-        val2.setPreferredSize(dim);
-        val3.setPreferredSize(dim);
-        val4.setPreferredSize(dim);
-
-        this.add(valeurs, BorderLayout.NORTH);
-        this.add(result, BorderLayout.CENTER);
-        this.add(tabl, BorderLayout.SOUTH);
-
-        this.setVisible(true);
     }
 
     public ArrayList<Button> getListTot() {
@@ -91,30 +73,53 @@ public class Window extends JFrame {
     public Button getVal1() {
         return val1;
     }
+
     public void setVal1(Button val1) {
         this.val1 = val1;
     }
+
     public Button getVal2() {
         return val2;
     }
-    public void setVal2(Button val2) {
-        this.val2 = val2;
-    }
+
     public Button getVal3() {
         return val3;
     }
-    public void setVal3(Button val3) {
-        this.val3 = val3;
-    }
+
     public Button getVal4() {
         return val4;
     }
-    public void setVal4(Button val4) {
-        this.val4 = val4;
+
+    public JComboBox getList1() {
+        return list1;
     }
 
-    public int getStockNumVal() {
-        return stockNumVal;
+    public JComboBox getList2() {
+        return list2;
+    }
+
+    public JComboBox getList3() {
+        return list3;
+    }
+
+    public JComboBox getList4() {
+        return list4;
+    }
+
+    public JLabel getFlag1() {
+        return flag1;
+    }
+
+    public JLabel getFlag2() {
+        return flag2;
+    }
+
+    public JLabel getFlag3() {
+        return flag3;
+    }
+
+    public JLabel getFlag4() {
+        return flag4;
     }
 
     /**
@@ -209,126 +214,42 @@ public class Window extends JFrame {
     }
 
     /**
-     * initie l'affichage des monnaies
+     * Mise en place des listes déroulantes
+     * @param pays
      */
-    public void initVal() {
+    public void initFlagsLists(String[] pays, String[] tabFlags){
+        flag1 = new JLabel();
+        flag2 = new JLabel();
+        flag3 = new JLabel();
+        flag4 = new JLabel();
 
-        valeurs.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-
-        JLabel flag1 = new JLabel();
-        Icon im1 = new ImageIcon("./src/flags/eur.png") ;
-        flag1.setIcon(im1);
-        JLabel flag2 = new JLabel();
-        flag2.setIcon(im1);
-        JLabel flag3 = new JLabel();
-        flag3.setIcon(im1);
-        JLabel flag4 = new JLabel();
-        flag4.setIcon(im1);
-
-        String[] pays = {"EUR", "USD", "GBP", "CAD", "CHF", "AUD", "INR", "TND", "AED", "GPY"};
-
-
-
-        val1.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        lab.setText(val1.getText());
-                        stockNumVal=1;
-                    }
-                }
-        );
-        val2.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        lab.setText(val2.getText());
-                        stockNumVal=2;
-                    }
-                }
-        );
-        val3.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        lab.setText(val3.getText());
-                        stockNumVal=3;
-                    }
-                }
-        );
-        val4.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        lab.setText(val4.getText());
-                        stockNumVal=4;
-                    }
-                }
-        );
-
-        /**
-         * Mise en place des listes déroulantes
-         */
-        list = new JComboBox(pays);
+        list1 = new JComboBox(pays);
         list2 = new JComboBox(pays);
         list3 = new JComboBox(pays);
         list4 = new JComboBox(pays);
 
-        list.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        JComboBox combo = (JComboBox)e.getSource();
-                        String cygle = (String)combo.getSelectedItem();
-                        String image = changeFlag(cygle);
-                        flag1.setIcon(new ImageIcon(image));
-                    }
-                }
-        );
-        list2.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        JComboBox combo = (JComboBox)e.getSource();
-                        String cygle = (String)combo.getSelectedItem();
-                        String image = changeFlag(cygle);
-                        flag2.setIcon(new ImageIcon(image));
-                    }
-                }
-        );
-        list3.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        JComboBox combo = (JComboBox)e.getSource();
-                        String cygle = (String)combo.getSelectedItem();
-                        String image = changeFlag(cygle);
-                        flag3.setIcon(new ImageIcon(image));
-                    }
-                }
-        );
-        list4.addActionListener(
-                new ActionListener(){
-                    public void actionPerformed(ActionEvent e){
-                        JComboBox combo = (JComboBox)e.getSource();
-                        String cygle = (String)combo.getSelectedItem();
-                        String image = changeFlag(cygle);
-                        flag4.setIcon(new ImageIcon(image));
-                    }
-                }
-        );
-
-        list.setBackground(Color.CYAN);
+        list1.setBackground(Color.CYAN);
         list2.setBackground(Color.CYAN);
         list3.setBackground(Color.CYAN);
         list4.setBackground(Color.CYAN);
-        list.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 20));
+        list1.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 20));
         list2.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 20));
         list3.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 20));
         list4.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 20));
+    }
 
-        JScrollPane listCur1 = new JScrollPane(list);
+    /**
+     * affichage vals, combobox et icones
+     */
+    public void initDisp(){
+        valeurs.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+
+        JScrollPane listCur1 = new JScrollPane(list1);
         JScrollPane listCur2 = new JScrollPane(list2);
         JScrollPane listCur3 = new JScrollPane(list3);
         JScrollPane listCur4 = new JScrollPane(list4);
 
-/**
- * affichage
- */
         Color newC = new Color(30,144,255);
         valeurs.setBackground(newC);
 
@@ -420,35 +341,28 @@ public class Window extends JFrame {
         val4.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 24));
         valeurs.add(val4, c);
 
-    }
 
-    /**
-     * @param name nom de la monaie choisie
-     * @return chemin pour fécupérer l'image correspondante
-     */
-    public String changeFlag(String name) {
-        switch (name) {
-            case "EUR":
-                return new String("./src/flags/eur.png");
-            case "USD":
-                return new String("./src/flags/usd.png");
-            case "GBP":
-                return new String("./src/flags/gbp.png");
-            case "CAD":
-                return new String("./src/flags/cad.png");
-            case "CHF":
-                return new String("./src/flags/chf.png");
-            case "AUD":
-                return new String("./src/flags/aud.png");
-            case "INR":
-                return new String("./src/flags/inr.png");
-            case "TND":
-                return new String("./src/flags/tnd.png");
-            case "AED":
-                return new String("./src/flags/aed.png");
-            case "GPY":
-                return new String("./src/flags/jpy.png");
+        /**
+         * les autres elements
+         */
+        for (Button b: butList) {
+            listTot.add(b);
         }
-        return "";
+        listTot.add(supp);
+        listVal.add(val1);
+        listVal.add(val2);
+        listVal.add(val3);
+        listVal.add(val4);
+
+        Dimension dim = new Dimension(120, 45);
+        val1.setPreferredSize(dim);
+        val2.setPreferredSize(dim);
+        val3.setPreferredSize(dim);
+        val4.setPreferredSize(dim);
+
+        this.add(valeurs, BorderLayout.NORTH);
+        this.add(result, BorderLayout.CENTER);
+        this.add(tabl, BorderLayout.SOUTH);
+
     }
 }

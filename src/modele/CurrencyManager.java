@@ -14,6 +14,9 @@ public class CurrencyManager {
 
     public CurrencyManager() {}
 
+    /**
+     * affiche la liste des devises dans la console
+     */
     public void printCurrs(){
         if(!currencies.isEmpty()) {
             int cpt = 1;
@@ -32,12 +35,29 @@ public class CurrencyManager {
         }
     }
 
-    public static Double convert(Currency currSrc, Double val, Currency currDst){
-        return (val / currSrc.getExchangeRate() * currDst.getExchangeRate());
+    public Double convert(String currSrc, Double val, String currDst){
+        return (val / this.getCurFromStr(currSrc).getExchangeRate() * this.getCurFromStr(currDst).getExchangeRate());
+    }
+
+    public Currency getCurFromStr(String str){
+        for (Currency cur : this.currencies)
+            if(cur.getName().equals(str))
+                return cur;
+        return currencies.get(0);
     }
 
     public ArrayList<Currency> getCurrencies() {
         return currencies;
+    }
+
+    public String[] getCurrNames() {
+        String[] tabNames = new String[currencies.size()];
+        int i = 0;
+        for(Currency cur : currencies) {
+            tabNames[i] = cur.getName();
+            i++;
+        }
+        return tabNames;
     }
 
     public void setCurrencies(ArrayList<Currency> currencies) {
