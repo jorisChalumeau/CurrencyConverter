@@ -14,7 +14,7 @@ public class Controler implements ActionListener {
 
     private Window window = null;
     private CurrencyManager currList;
-    private int stockNumVal = 1;
+    private int stockNumVal;
 
     public Controler() {
         FileManager fm = new FileManager();
@@ -290,6 +290,8 @@ public class Controler implements ActionListener {
 
         // valeurs initiales des vals
         window.getVal1().setText("1");
+        stockNumVal = 1;
+        window.getVal1().setBackground(new Color(255,255,107));
         String curr1 = (String) window.getList1().getSelectedItem();
         window.getVal2().setText(""+currList.convert(curr1, 1.0, (String) window.getList2().getSelectedItem()));
         window.getVal3().setText(""+currList.convert(curr1, 1.0, (String) window.getList3().getSelectedItem()));

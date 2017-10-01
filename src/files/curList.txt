@@ -1,1 +1,37 @@
-{"currencies":[{"name":"USD","exchangeRate":1.0, "imagePath":"./src/flags/usd.png"},{"name":"EUR","exchangeRate":0.851, "imagePath":"./src/flags/eur.png"},{"name":"GBP","exchangeRate":0.74681, "imagePath":"./src/flags/gbp.png"},{"name":"INR","exchangeRate":65.6837, "imagePath":"./src/flags/inr.png"},{"name":"AUD","exchangeRate":1.27916, "imagePath":"./src/flags/aud.png"}]}
+{"currencies":
+[
+{"name":"EUR","exchangeRate":1.0, "imagePath":"./src/flags/eur.png"},
+{"name":"USD","exchangeRate":1.18056, "imagePath":"./src/flags/usd.png"},
+{"name":"GBP","exchangeRate":0.88077, "imagePath":"./src/flags/gbp.png"},
+{"name":"INR","exchangeRate":65.6837, "imagePath":"./src/flags/inr.png"},
+{"name":"AUD","exchangeRate":1.50653, "imagePath":"./src/flags/aud.png"},
+{"name":"CAD","exchangeRate":1.4721, "imagePath":"./src/flags/cad.png"},
+{"name":"NZD","exchangeRate":1.6358, "imagePath":"./src/flags/nzd.png"},
+{"name":"AED","exchangeRate":4.3375, "imagePath":"./src/flags/aed.png"},
+{"name":"BGN","exchangeRate":1.95583, "imagePath":"./src/flags/bgn.png"},
+{"name":"BWP","exchangeRate":12.1603, "imagePath":"./src/flags/bwp.png"},
+{"name":"CHF","exchangeRate":1.14284, "imagePath":"./src/flags/chf.png"},
+{"name":"CNY","exchangeRate":7.8627, "imagePath":"./src/flags/cny.png"},
+{"name":"CZK","exchangeRate":25.9712, "imagePath":"./src/flags/czk.png"},
+{"name":"DKK","exchangeRate":7.44124, "imagePath":"./src/flags/dkk.png"},
+{"name":"HKD","exchangeRate":9.2275, "imagePath":"./src/flags/hkd.png"},
+{"name":"HRK","exchangeRate":7.4899, "imagePath":"./src/flags/hrk.png"},
+{"name":"HUF","exchangeRate":311.17, "imagePath":"./src/flags/huf.png"},
+{"name":"ILS","exchangeRate":4.16822, "imagePath":"./src/flags/ils.png"},
+{"name":"JPY","exchangeRate":132.72, "imagePath":"./src/flags/jpy.png"},
+{"name":"KES","exchangeRate":121.862, "imagePath":"./src/flags/kes.png"},
+{"name":"MUR","exchangeRate":40.569, "imagePath":"./src/flags/mur.png"},
+{"name":"MXN","exchangeRate":21.57, "imagePath":"./src/flags/mxn.png"},
+{"name":"NOK","exchangeRate":9.39119, "imagePath":"./src/flags/nok.png"},
+{"name":"PHP","exchangeRate":60.138, "imagePath":"./src/flags/php.png"},
+{"name":"PLN","exchangeRate":4.30773, "imagePath":"./src/flags/pln.png"},
+{"name":"RON","exchangeRate":4.5953, "imagePath":"./src/flags/ron.png"},
+{"name":"RUB","exchangeRate":67.988, "imagePath":"./src/flags/rub.png"},
+{"name":"SEK","exchangeRate":9.60636, "imagePath":"./src/flags/sek.png"},
+{"name":"SGD","exchangeRate":1.6035, "imagePath":"./src/flags/sgd.png"},
+{"name":"THB","exchangeRate":39.282, "imagePath":"./src/flags/thb.png"},
+{"name":"TND","exchangeRate":2.92717, "imagePath":"./src/flags/tnd.png"},
+{"name":"TRY","exchangeRate":4.20501, "imagePath":"./src/flags/try.png"},
+{"name":"ZAR","exchangeRate":15.9902, "imagePath":"./src/flags/zar.png"}
+]
+}
